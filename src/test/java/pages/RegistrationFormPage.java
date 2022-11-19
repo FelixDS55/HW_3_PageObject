@@ -6,7 +6,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class RegistrationPage {
+public class RegistrationFormPage {
     private final String TITLE_TEXT = "Student Registration Form";
     private SelenideElement
             firstNameInput = $("[id=firstName]"),
@@ -14,7 +14,7 @@ public class RegistrationPage {
             EmailInput = $("[id=userEmail"),
             genderInput = $("#genderWrapper"),
             numberInput = $("[id=userNumber]");
-    public RegistrationPage openPage(){
+    public RegistrationFormPage openPage(){
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text(TITLE_TEXT));
         executeJavaScript("$('footer').remove()");
@@ -22,27 +22,27 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setFirstName(String value){
+    public RegistrationFormPage setFirstName(String value){
         firstNameInput.setValue(value);
         return this;
     }
 
-    public RegistrationPage setLastName(String value){
+    public RegistrationFormPage setLastName(String value){
         lastNameInput.setValue(value);
         return this;
     }
 
-    public RegistrationPage setEmail(String value){
+    public RegistrationFormPage setEmail(String value){
         EmailInput.setValue(value);
         return this;
     }
 
-    public RegistrationPage setGender(String value){
+    public RegistrationFormPage setGender(String value){
         genderInput.$(byText(value)).click();
         return this;
     }
 
-    public RegistrationPage setPhone(String value){
+    public RegistrationFormPage setPhone(String value){
         numberInput.setValue(value);
         return this;
     }

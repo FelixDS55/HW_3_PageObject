@@ -4,7 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import pages.RegistrationPage;
+import pages.RegistrationFormPage;
 
 import java.io.File;
 
@@ -13,8 +13,8 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 
-public class RegistrationFormPageWithPO {
-    RegistrationPage registrationPage = new RegistrationPage();
+public class RegistrationPageWithPO {
+    RegistrationFormPage registrationFormPage = new RegistrationFormPage();
 
 
 
@@ -28,7 +28,7 @@ public class RegistrationFormPageWithPO {
     @Test
     void formTests(){
 
-        registrationPage.openPage()
+        registrationFormPage.openPage()
                 .setFirstName("Mike")
                 .setLastName("Turilov")
                 .setEmail("example@google.com")
