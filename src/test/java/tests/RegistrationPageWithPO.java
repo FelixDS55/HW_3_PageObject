@@ -1,10 +1,10 @@
-package Tests;
+package tests;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import pages.RegistrationFormPage;
+import pages.RegistrationPage;
 
 import java.io.File;
 
@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 
 public class RegistrationPageWithPO {
-    RegistrationFormPage registrationFormPage = new RegistrationFormPage();
+    RegistrationPage registrationFormPage = new RegistrationPage();
 
 
 
@@ -33,7 +33,8 @@ public class RegistrationPageWithPO {
                 .setLastName("Turilov")
                 .setEmail("example@google.com")
                 .setGender("Other")
-                .setPhone("9001546995");
+                .setPhone("9001546995")
+                .setBirthDay("30", "July", "2008");
 
 
 
@@ -51,12 +52,15 @@ public class RegistrationPageWithPO {
         $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
 
+        registrationFormPage.verifyResultsModalAppears()
+                .verifyResults("Student Name", "Mike" + " Turilov")
+                .verifyResults("Student Email", "example@google.com")
+                .verifyResults("Gender", "Other")
+                .verifyResults("Mobile", "9001546995")
+                .verifyResults("Date of Birth", "30 July,2008");
+
+
         $(".modal-content").shouldBe(Condition.visible);
-        $(".modal-content").shouldHave(text("Mike Turilov"));
-        $(".modal-content").shouldHave(text("example@google.com"));
-        $(".modal-content").shouldHave(text("Male"));
-        $(".modal-content").shouldHave(text("9001546995"));
-        $(".modal-content").shouldHave(text("12 January,1985"));
         $(".modal-content").shouldHave(text("Maths"));
         $(".modal-content").shouldHave(text("Sports"));
         $(".modal-content").shouldHave(text("1.png"));
