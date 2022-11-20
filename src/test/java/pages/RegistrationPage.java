@@ -119,7 +119,6 @@ public class RegistrationPage {
 
     public RegistrationPage closeTable(){
         closeInput.click();
-
         return this;
     }
 

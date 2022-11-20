@@ -43,7 +43,6 @@ public class RegistrationPageWithPO {
                 .setCity("Delhi")
                 .setSubmit();
 
-
         registrationFormPage.verifyResultsModalAppears()
                 .verifyResults("Student Name", "Mike" + " Turilov")
                 .verifyResults("Student Email", "example@google.com")
@@ -56,7 +55,5 @@ public class RegistrationPageWithPO {
                 .verifyResults("Address", "Some Address")
                 .verifyResults("State and City", "NCR Delhi")
                 .closeTable();
-
-
     }
 }
