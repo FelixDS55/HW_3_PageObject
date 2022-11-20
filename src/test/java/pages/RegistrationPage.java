@@ -88,8 +88,8 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setPicture() {
-        pictureInput.uploadFile(new File("src/test/resources/1.png"));
+    public RegistrationPage setPicture(String value) {
+        pictureInput.uploadFile(new File(value));
         return this;
     }
 

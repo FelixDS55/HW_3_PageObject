@@ -37,7 +37,7 @@ public class RegistrationPageWithPO {
                 .setBirthDay("30", "July", "2008")
                 .setSubjects("Maths")
                 .setHobbies()
-                .setPicture()
+                .setPicture("src/test/resources/1.png")
                 .setAddress("Some Address")
                 .setState("NCR")
                 .setCity("Delhi");
