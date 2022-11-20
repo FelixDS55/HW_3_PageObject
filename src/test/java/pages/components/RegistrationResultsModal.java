@@ -9,6 +9,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class RegistrationResultsModal {
     public void veifyModalAppears(){
+        $(".modal-content").shouldBe(Condition.visible);
         $(".modal-dialog").should(appear);
         $(".modal-dialog").shouldHave(text("Thanks for submitting the form"));
     }

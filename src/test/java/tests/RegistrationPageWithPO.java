@@ -22,7 +22,7 @@ public class RegistrationPageWithPO {
     static void setUp(){
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
-        Configuration.holdBrowserOpen = true;
+//        Configuration.holdBrowserOpen = true;
     }
 
     @Test
@@ -34,22 +34,15 @@ public class RegistrationPageWithPO {
                 .setEmail("example@google.com")
                 .setGender("Other")
                 .setPhone("9001546995")
-                .setBirthDay("30", "July", "2008");
+                .setBirthDay("30", "July", "2008")
+                .setSubjects("Maths")
+                .setHobbies()
+                .setPicture()
+                .setAddress("Some Address")
+                .setState("NCR")
+                .setCity("Delhi");
 
 
-
-        $("#subjectsInput").click();
-        $("#subjectsInput").setValue("Maths");
-        $("#subjectsInput").pressEnter();
-        $("#subjectsInput").pressTab();
-        $("#hobbies-checkbox-1").parent().click();
-//        $("#uploadPicture").uploadFromClasspath("1.png");
-        $("#uploadPicture").uploadFile(new File("src/test/resources/1.png"));
-        $("#currentAddress").setValue("Some Address");
-        $("#state").click();
-        $("#stateCity-wrapper").$(byText("NCR")).click();
-        $("#city").click();
-        $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
 
         registrationFormPage.verifyResultsModalAppears()
@@ -57,15 +50,15 @@ public class RegistrationPageWithPO {
                 .verifyResults("Student Email", "example@google.com")
                 .verifyResults("Gender", "Other")
                 .verifyResults("Mobile", "9001546995")
-                .verifyResults("Date of Birth", "30 July,2008");
+                .verifyResults("Date of Birth", "30 July,2008")
+                .verifyResults("Subjects", "Maths")
+                .verifyResults("Hobbies", "Sports")
+                .verifyResults("Picture", "1.png")
+                .verifyResults("Address", "Some Address")
+                .verifyResults("State and City", "NCR Delhi");
 
 
-        $(".modal-content").shouldBe(Condition.visible);
-        $(".modal-content").shouldHave(text("Maths"));
-        $(".modal-content").shouldHave(text("Sports"));
-        $(".modal-content").shouldHave(text("1.png"));
-        $(".modal-content").shouldHave(text("Some Address"));
-        $(".modal-content").shouldHave(text("NCR Delhi"));
+
         $("#closeLargeModal").click();
 
     }

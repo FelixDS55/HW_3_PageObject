@@ -4,6 +4,8 @@ import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 import pages.components.RegistrationResultsModal;
 
+import java.io.File;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -18,7 +20,13 @@ public class RegistrationPage {
             EmailInput = $("[id=userEmail"),
             genderInput = $("#genterWrapper"),
             numberInput = $("[id=userNumber]"),
-            dateOfBirthDayInput = $("[id=dateOfBirthInput]");
+            dateOfBirthDayInput = $("[id=dateOfBirthInput]"),
+            subjectsInput = $("#subjectsInput"),
+            hobbiesInput = $("#hobbies-checkbox-1"),
+            pictureInput = $("#uploadPicture"),
+            addressInput = $("#currentAddress"),
+            stateInput = $("#stateCity-wrapper"),
+            cityInput = $("#stateCity-wrapper");
 
     public RegistrationPage openPage() {
         open("/automation-practice-form");
@@ -69,6 +77,39 @@ public class RegistrationPage {
         return this;
 
     }
+
+    public RegistrationPage setSubjects(String value) {
+        subjectsInput.setValue(value).pressEnter();
+        return this;
+    }
+
+    public RegistrationPage setHobbies() {
+        hobbiesInput.parent().click();
+        return this;
+    }
+
+    public RegistrationPage setPicture() {
+        pictureInput.uploadFile(new File("src/test/resources/1.png"));
+        return this;
+    }
+
+    public RegistrationPage setAddress(String value) {
+        addressInput.setValue(value);
+        return this;
+    }
+
+    public RegistrationPage setState(String value) {
+        $("#state").click();
+        stateInput.$(byText(value)).click();
+        return this;
+    }
+
+    public RegistrationPage setCity(String value) {
+        $("#city").click();
+        cityInput.$(byText(value)).click();
+        return this;
+    }
+
 }
 
 
