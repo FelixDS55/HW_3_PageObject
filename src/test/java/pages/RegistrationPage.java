@@ -26,7 +26,9 @@ public class RegistrationPage {
             pictureInput = $("#uploadPicture"),
             addressInput = $("#currentAddress"),
             stateInput = $("#stateCity-wrapper"),
-            cityInput = $("#stateCity-wrapper");
+            cityInput = $("#stateCity-wrapper"),
+            submitInput = $("#submit"),
+            closeInput = $("#closeLargeModal");
 
     public RegistrationPage openPage() {
         open("/automation-practice-form");
@@ -107,6 +109,17 @@ public class RegistrationPage {
     public RegistrationPage setCity(String value) {
         $("#city").click();
         cityInput.$(byText(value)).click();
+        return this;
+    }
+
+    public RegistrationPage setSubmit() {
+        submitInput.click();
+        return this;
+    }
+
+    public RegistrationPage closeTable(){
+        closeInput.click();
+
         return this;
     }
 

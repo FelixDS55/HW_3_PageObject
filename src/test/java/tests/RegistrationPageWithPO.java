@@ -22,7 +22,7 @@ public class RegistrationPageWithPO {
     static void setUp(){
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
-//        Configuration.holdBrowserOpen = true;
+        Configuration.holdBrowserOpen = true;
     }
 
     @Test
@@ -40,10 +40,9 @@ public class RegistrationPageWithPO {
                 .setPicture("src/test/resources/1.png")
                 .setAddress("Some Address")
                 .setState("NCR")
-                .setCity("Delhi");
+                .setCity("Delhi")
+                .setSubmit();
 
-
-        $("#submit").click();
 
         registrationFormPage.verifyResultsModalAppears()
                 .verifyResults("Student Name", "Mike" + " Turilov")
@@ -55,11 +54,9 @@ public class RegistrationPageWithPO {
                 .verifyResults("Hobbies", "Sports")
                 .verifyResults("Picture", "1.png")
                 .verifyResults("Address", "Some Address")
-                .verifyResults("State and City", "NCR Delhi");
+                .verifyResults("State and City", "NCR Delhi")
+                .closeTable();
 
-
-
-        $("#closeLargeModal").click();
 
     }
 }
