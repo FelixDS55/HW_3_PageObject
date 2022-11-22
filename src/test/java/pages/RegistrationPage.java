@@ -15,9 +15,9 @@ public class RegistrationPage {
     RegistrationResultsModal registrationResultsModal = new RegistrationResultsModal();
     private final String TITLE_TEXT = "Student Registration Form";
     private SelenideElement
-            firstNameInput = $("[id=firstName]"),
-            lastNameInput = $("[id=lastName]"),
-            EmailInput = $("[id=userEmail"),
+            firstNameInput = $("#firstName"),
+            lastNameInput = $("#lastName"),
+            emailInput = $("#userEmail"),
             genderInput = $("#genterWrapper"),
             numberInput = $("[id=userNumber]"),
             dateOfBirthDayInput = $("[id=dateOfBirthInput]"),
@@ -49,7 +49,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setEmail(String value) {
-        EmailInput.setValue(value);
+        emailInput.setValue(value);
         return this;
     }
 
