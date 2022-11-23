@@ -29,6 +29,7 @@ public class RegistrationPageWithPO {
     void formTests(){
 
         registrationFormPage.openPage()
+
                 .setFirstName("Mike")
                 .setLastName("Turilov")
                 .setEmail("example@google.com")
