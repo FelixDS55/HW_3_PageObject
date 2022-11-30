@@ -69,5 +69,6 @@ public class RegistrationPagePOWithFaker extends RandomUtils{
                 .verifyResults("Address", address)
                 .verifyResults("State and City", state + " " + city)
                 .closeTable();
+
     }
 }
